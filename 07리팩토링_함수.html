@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../HTML/images/pic_bulboff.gif" alt="OFF" width="70px"
+    style="cursor: pointer;">
+<button id="btn">OFF</button>
+         <script>
+            const btn = document.getElementById('btn')
+            let isOn = false
+            let btnText
+            const bulbOFF = "../HTML/images/pic_bulboff.gif"
+            const bulbON = "../HTML/images/pic_bulbon.gif"
+            let bulbImg = bulbOFF
+            const img = document.querySelector('img')
+            //const onoff = () => 
+            const onoff = function() { //함수에 대한 변수 선언은 사용하는ㄴ 코드보다 앞에
+            if (isOn) { 
+                btnText= 'OFF'
+                bulbImg = bulbOFF
+            } else {
+                btnText = 'ON'
+                bulbImg = bulbON
+            }
+                btn.textContent = btnText
+                img.src = bulbImg
+                isOn = !isOn
+             }
+             btn.addEventListener('click', onoff)
+             img.addEventListener('click', onoff)
+         </script>
+</body>
+</html>
