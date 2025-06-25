@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12연습</title>
+            <script src="./js/15_수업.js" defer></script>
+            <style>
+                table {
+                    border: 1px solid red;
+                    border-collapse: collapse;
+                    width: 700px;
+                    margin: 30px auto;
+                    /* 가로 방향 여백을 알아서 자동 설정
+                    table 의 너비가 100%보다 작을 때 가능 */
+                }
+
+                h3 {
+                    text-align: center;
+                }
+
+                tr, td {
+                    border: 1px solid tomato;
+                }
+
+                th {
+                    color: white;
+                    background-color: rgb(165, 30, 30);
+                    width: 100px;
+                }
+
+                td {
+                    text-align: center;
+                    padding: 5px;
+                }
+            </style>
+</head>
+<body>
+    <h3 id="title">오늘 시간표</h3>
+    <table>
+        <tr id="time">
+            <th >TIME</th>
+            <!-- tbody : table 내에서 td 나 th 를 그룹화하는 테이블 요소 -->
+                <td></td> <!-- td 들을 그룹화 -->
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+        </tr>
+        <tr id="todo">
+            <th >TODO</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </div>
+        </tr>
+    </table>
+    <button id="tomorrow">내일 시간표</button>
+    <button id="today">오늘 시간표</button>
+    <script>
+        // 오늘 시간표 - time, todo 배열 선언
+ const time =['09:00', '11:00', '12:30', '14:00', '16:45']
+const todo =['수업', '과제', '점심식사', '주간회의', '자료조사']
+
+// 내일 시간표
+const time2 =['08:00', '10:00', '11:20', '14:00', '15:00', '17:00']
+const todo2 =['수업', '회의', '점심식사', '운동', '업무', '친구약속']
+
+const tom = document.getElementById('tomorrow')
+const today = document.getElementById('today')
+const timeTr = document.getElementById('time')
+const todoTr = document.getElementById('todo')
+const title = document.getElementById('title')
+
+tom.addEventListener('click', function() {
+    timeTr.innerHTML = '<th>TIME</th>'
+    todoTr.innerHTML = '<th>TODO</th>'
+    title.textContent = '내일 시간표'
+    for(let t of time2) {
+        const td = document.createElement('td')
+        td.textContent = t
+        timeTr.appendChild(td)
+    }
+    for(let t of todo2) {
+        const td = document.createElement('td')
+        td.textContent = t
+        todoTr.appendChild(td)
+    }
+})
+
+
+today.addEventListener('click', function() {
+    timeTr.innerHTML = '<th>TIME</th>'
+    todoTr.innerHTML = '<th>TODO</th>'
+        title.textContent = '오늘 시간표'
+    for(let t of time) {
+        const td = document.createElement('td')
+        td.textContent = t
+        timeTr.appendChild(td)
+    }
+    for(let t of todo) {
+        const td = document.createElement('td')
+        td.textContent = t
+        todoTr.appendChild(td)
+    }
+})
+
+// 오늘 시간표 - 실제 table 에 들어갈 timeTB, todoTB 배열 선언
+// 화면 로딩시 바로 보임.
+const timeTB = document.querySelectorAll('tr#time td') //tr 태그 중 id가 time인데 클래스가 td인것을 모두 고른다.
+const todoTB = document.querySelectorAll('tr#todo td')
+
+for (let i=0; i < time.length; i++) {
+    timeTB[i].textContent = time[i]
+    todoTB[i].textContent = todo[i]
+}
+    </script>
+</body>
+</html>
