@@ -21,10 +21,10 @@
     <div id="test"></div>
     <script>
         function hello(message) {
-            document.getElementById('test').textContent
+            document.getElementById('test').textContent = message
         }
 
-        function processInput(cbf){  //cbf변수는 함수로 실행할 예정
+        function processInput(cbf) {  //cbf변수는 함수로 실행할 예정
             const message = prompt('메세지를 입력하세요.')
             cbf(message)  //cbf 함수에게 message를 입력으로 전달
         }
